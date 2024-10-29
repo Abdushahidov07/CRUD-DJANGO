@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ALL COMPANY</title>
+    <style>
+        body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f4f8;
+    color: #343a40;
+}
+
+.line {
+    display: flex;
+    justify-content: center;
+    background-color: #007bff;
+    padding: 15px;
+}
+
+.line a {
+    margin: 0 10px;
+}
+
+button {
+    background-color: #ffffff;
+    color: #007bff;
+    border: 2px solid #007bff;
+    border-radius: 5px;
+    padding: 10px 15px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+button:hover {
+    background-color: #007bff;
+    color: white;
+}
+
+.main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 20px;
+}
+
+.con {
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    margin: 15px;
+    text-align: center;
+    padding: 20px;
+}
+
+.con img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.con h1 {
+    font-size: 22px;
+    margin: 10px 0;
+    color: #007bff;
+}
+
+.con p {
+    margin: 5px 0;
+    color: #6c757d;
+}
+    </style>
+</head>
+<body>
+    <div class="line">
+        <a href="{% url 'menu' %}"><button>Menu</button></a>
+        <a href="http://127.0.0.1:8000/updatecomp/{{company.id}}"><button>Update</button></a>
+        <a href="http://127.0.0.1:8000/deletecopm/{{company.id}}"><button>Delete</button></a>
+    </div>
+    <div class="main">
+        <a href="">
+        <div class="con">
+            <img src="{{company.image.url}}" alt="">
+            <h1>{{company.name_company}}</h1>
+            <p>{{company.country}}</p>
+            <p>{{company.create_at}}</p>
+        </div>
+        </a>
+    </div>
+</body>
+</html>

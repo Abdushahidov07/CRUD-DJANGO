@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ALL COMPANY</title>
+    <style>
+        body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #e9ecef;
+    color: #343a40;
+}
+.line {
+    display: flex;
+    justify-content: center;
+    background-color: #007bff;
+    padding: 15px;
+}
+
+.line a {
+    margin: 0 10px;
+}
+
+.main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 20px;
+}
+
+.con {
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    margin: 15px;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+    padding: 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+.con img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.con h1 {
+    font-size: 22px;
+    margin: 10px 0;
+    color: #007bff;
+}
+
+.con p {
+    margin: 5px 0;
+    color: #6c757d;
+}
+
+.con:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+@media (max-width: 600px) {
+    .con {
+        width: 90%;
+    }
+}
+button {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    margin: 10px;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #c82333;
+}
+
+a button {
+    background-color: #28a745;
+}
+
+a button:hover {
+    background-color: #218838;
+}
+
+a {
+    text-decoration: none;
+}
+
+    </style>
+</head>
+<body>
+    <div class="line">
+        <a href="{% url 'menu' %}"><button>Menu</button></a>
+        <a href="{% url 'createcar' %}"><button>ADD CAR</button></a>
+
+    </div>
+    <div class="main">
+    {% if car.count > 0 %}
+        {% for cir in car %}
+        <a href="http://127.0.0.1:8000/getcarid/{{cir.id}}">
+        <div class="con">
+            <img src="{{cir.image.url}}" alt="">
+            <h1>{{cir.car_model}}</h1>
+            <p>{{cir.speed}}</p>
+            <p>{{cir.color}}</p>
+            <p>{{cir.company_id}}</p>
+            <p>{{cir.probeg}}</p>
+            <p>{{cir.price}}</p>
+        </div>
+        </a>
+        {% endfor %}
+    {% endif %}
+    </div>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/stylemenu.css' %}">
+    <title>Menu</title>
+</head>
+<body>
+    <div class="line">
+        
+    </div>
+    <div class="main">
+        <a href="{% url "allcompany" %}">
+        <div class="con">
+            <img src="{% static "images/images.jpg" %}" alt="">
+            <h1>Company</h1>
+        </div>
+        </a>
+        <a href="{% url "allcar" %}">
+        <div class="con">
+            <img src="{% static 'images/Car.jpg' %}" alt="">
+            <h1>Cars</h1>
+        </div>
+        </a>
+    </div>
+</body>
+</html>
